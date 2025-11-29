@@ -11,11 +11,11 @@
 ::: {.column .information width="68%"}
 
 ::: {.title}
-Quarto template
+The **`DESCRIPTION`** file
 :::
 
 ::: {.subtitle}
-HTML presentation w/ RevealJS framework
+Store project metadata & dependencies in one place
 :::
 
 ::: {.date}
