@@ -4,7 +4,7 @@
   <br>
   <img src="images/readme/logo-readme.png" alt="Logo" width="200">
   <br>
-  The **`DESCRIPTION`** file
+  The DESCRIPTION file
   <br>
   Store project metadata & dependencies in one place
   <br>
