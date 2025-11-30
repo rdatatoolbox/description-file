@@ -1,15 +1,532 @@
 ## What is it?
 
-...
+<br /><br /><br />
+
+::: {.center}
+![](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDY5Y2tlaW9tZHNsODEwMmR0M3ptcTE3bmFqZmJnMnBueGkzbWt4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rVVFWyTINqG7C/giphy.gif){width=50%}
+:::
+
+
+## What is it?
+
+> The **`DESCRIPTION`** file is the main component of an {{< fa brands r-project >}}&nbsp; package describing **package metadata**
+
+. . .
+
+{{< fa circle-arrow-right >}}&nbsp; It can be used with a **research compendium** to describe **project metadata**
+
+. . .
+
+<br /><br />
+
+
+:::: {.columns}
+
+::: {.column width=45%}
+
+{{< fa file-lines >}}&nbsp; **Project metadata**
+
+Title, description, authors, license, ...
+
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+
+:::
+
+::::
+
+
+## What is it?
+
+> The **`DESCRIPTION`** file is the main component of an {{< fa brands r-project >}}&nbsp; package describing **package metadata**
+
+
+
+{{< fa circle-arrow-right >}}&nbsp; It can be used with a **research compendium** to describe **project metadata**
+
+
+<br /><br />
+
+:::: {.columns}
+
+::: {.column width=45%}
+
+{{< fa file-lines >}}&nbsp; **Project metadata**
+
+Title, description, authors, license, ...
+
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+
+{{< fa wrench >}}&nbsp; **Project dependencies**
+
+Packages used in the project
+
+:::
+
+::::
+
+. . .
+
+<br /><br />
+
+
+{{< fa circle-arrow-right >}}&nbsp; A simple plain text **file without extension** at the **root** of the project
+
+{{< fa circle-arrow-right >}}&nbsp; Use the DCF syntax (Debian Control Format), i.e. **`field: value`**
 
 
 
 ## Project metadata
 
-...
+{{< fa circle-arrow-right >}}&nbsp; Example of the content of a **`DESCRIPTION`** file
 
+:::: {.columns}
+
+::: {.column width=45%}
+
+```{.yaml code-line-numbers="|1|2|3-8|9-10|11|12|13|14-15"}
+Package: projectname
+Title: The Title of the Project
+Authors@R: c(
+    person(
+      given = "Jane", 
+      family = "Doe", 
+      role = "aut",
+      email = "jane.doe@mail.me"))
+Description: A paragraph providing a full description of 
+    the project.
+License: GPL (>= 2)
+URL: https://github.com/jdoe/projectname/
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+```
+
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+:::
+
+::::
+
+
+## Project metadata
+
+{{< fa circle-arrow-right >}}&nbsp; Example of the content of a **`DESCRIPTION`** file
+
+:::: {.columns}
+
+::: {.column width=45%}
+
+```{.yaml}
+Package: projectname
+Title: The Title of the Project
+Authors@R: c(
+    person(
+      given = "Jane", 
+      family = "Doe", 
+      role = "aut",
+      email = "jane.doe@mail.me"))
+Description: A paragraph providing a full description of 
+    the project.
+License: GPL (>= 2)
+URL: https://github.com/jdoe/projectname/
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+```
+
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+:::
+
+::::
+
+
+
+
+<br /><br />
+
+
+{{< fa lightbulb >}}&nbsp; The function [**`add_description()`**](https://frbcesab.github.io/rcompendium/reference/add_description.html) of the package [`rcompendium`](https://frbcesab.github.io/rcompendium/) can be used to automatically generate a prefilled **`DESCRIPTION`** file[^usethis]
+
+
+[^usethis]: See also the function [**`use_description()`**](https://usethis.r-lib.org/reference/use_description.html) of the package [`usethis`](https://usethis.r-lib.org/index.html)
 
 
 ## Project dependencies
 
-...
+{{< fa circle-arrow-right >}}&nbsp; Listing packages in a **`DESCRIPTION`** file
+
+:::: {.columns}
+
+::: {.column width=45%}
+
+```{.yaml code-line-numbers="16-21"}
+Package: projectname
+Title: The Title of the Project
+Authors@R: c(
+    person(
+      given = "Jane", 
+      family = "Doe", 
+      role = "aut",
+      email = "jane.doe@mail.me"))
+Description: A paragraph providing a full description of 
+    the project.
+License: GPL (>= 2)
+URL: https://github.com/jdoe/projectname/
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends:
+    ggplot2
+Imports:
+    here,
+    readr,
+    utils
+```
+
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+
+<br /><br />
+
+{{< fa circle-arrow-right >}}&nbsp; Two fields can be used to list dependencies: **Depends** and **Imports**
+
+<br /><br />
+
+::: {.fragment fragment-index=1}
+{{< fa circle-arrow-right >}}&nbsp; Let's talk about **`library()`**
+:::
+
+:::
+
+::::
+
+
+## Dealing w/ dependencies
+
+{{< fa circle-arrow-right >}}&nbsp; To call a function **`bar()`** from the package **`foo`**, we usually run **`library("foo")`** before using **`bar()`**
+
+. . .
+
+<br />
+
+{{< fa triangle-exclamation >}}&nbsp; **Some potential issues**
+
+<br />
+
+:::: {.columns}
+
+::: {.column .center width=45%}
+**Lack of readability/reproducibility**
+
+Where does the function `bar()` come from?
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column .center width=45% .fragment fragmen-index=1}
+**Conflict between packages**
+
+Two different functions w/ the same name come from two different packages and both have been attached. Which of the functions do you use?
+:::
+
+::::
+
+. . .
+
+<br />
+
+
+```{r}
+#| echo: true
+#| eval: false
+library("tidyverse")
+## ── Attaching core tidyverse packages ──────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ## ──
+## ✔ dplyr     1.1.2     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.1     
+## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ## ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package to force all conflicts to become errors
+```
+
+
+## Dealing w/ dependencies
+
+{{< fa circle-arrow-right >}}&nbsp; A solution is to use the [**Double Colon operator**](https://stat.ethz.ch/R-manual/R-devel/library/base/html/ns-dblcolon.html), i.e. **`foo::bar()`** instead of **`library("foo")`**
+
+
+. . .
+
+<br />
+
+::: {.boxed .center}
+**Always use the syntax `foo::bar()` !!!**
+:::
+
+
+. . .
+
+
+<br />
+
+{{< fa hand-point-right >}} &nbsp; Except if you use a package many (many) times (e.g. **`ggplot2`**)
+
+
+## Back to the **`DESCRIPTION`** file
+
+{{< fa circle-arrow-right >}}&nbsp; Listing packages in a **`DESCRIPTION`** file
+
+:::: {.columns}
+
+::: {.column width=45%}
+
+```{.yaml code-line-numbers="16-21"}
+Package: projectname
+Title: The Title of the Project
+Authors@R: c(
+    person(
+      given = "Jane", 
+      family = "Doe", 
+      role = "aut",
+      email = "jane.doe@mail.me"))
+Description: A paragraph providing a full description of 
+    the project.
+License: GPL (>= 2)
+URL: https://github.com/jdoe/projectname/
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends:
+    ggplot2
+Imports:
+    here,
+    readr,
+    utils
+```
+
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+
+<br /><br />
+
+::: {.fragment fragment-index=1}
+{{< fa circle-arrow-right >}}&nbsp; List packages in the **Imports** field if you use **`foo::bar()`**
+:::
+
+<br /><br />
+
+::: {.fragment fragment-index=2}
+{{< fa circle-arrow-right >}}&nbsp; List packages in the **Depends** field if you use **`library(foo)`**
+:::
+
+:::
+
+::::
+
+
+## Ready?
+
+<br /><br /><br />
+
+::: {.center}
+![](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDY5Y2tlaW9tZHNsODEwMmR0M3ptcTE3bmFqZmJnMnBueGkzbWt4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rVVFWyTINqG7C/giphy.gif){width=50%}
+:::
+
+
+
+## The `install_deps()` function
+
+{{< fa circle-arrow-right >}}&nbsp; Run [**`install_deps()`**](https://devtools.r-lib.org/reference/install_deps.html) of the package [**`devtools`**](https://devtools.r-lib.org/index.html) to install all packages listed in the **`DESCRIPTION`** file (**Depends** & **Imports**)
+
+<br />
+
+:::: {.columns}
+
+::: {.column width=45%}
+```{r}
+#| echo: true
+#| eval: false
+
+# Install packages listed in the DESCRIPTION file ----
+devtools::install_deps()
+```
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45% .fragment fragment-index=1}
+<br /><br />
+
+- All missing packages will be installed
+- New versions will be installed (by default)
+- Already installed packages won't be reinstalled
+
+:::
+
+::::
+
+
+<br /><br />
+
+. . .
+
+::: {.boxed .center}
+**Don't use `install.packages()` anymore**
+:::
+
+
+
+## But wait!
+
+<br /><br /><br />
+
+::: {.center}
+![](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDY5Y2tlaW9tZHNsODEwMmR0M3ptcTE3bmFqZmJnMnBueGkzbWt4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rVVFWyTINqG7C/giphy.gif){width=50%}
+:::
+
+
+## The `load_all()` function
+
+{{< fa circle-arrow-right >}}&nbsp; Run [**`load_all()`**](https://devtools.r-lib.org/reference/load_all.html) of the package [**`devtools`**](https://devtools.r-lib.org/index.html) to:
+
+- load packages listed in the **Imports** field of the **`DESCRIPTION`** file 
+- load & attach packages listed in the **Depends** field of the **`DESCRIPTION`** file 
+
+<br />
+
+:::: {.columns}
+
+::: {.column width=45%}
+```{r}
+#| echo: true
+#| eval: false
+
+# Load project ----
+devtools::load_all()
+```
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+:::
+
+::::
+
+
+<br /><br />
+
+. . .
+
+::: {.boxed .center}
+**Don't use `library()` anymore**
+:::
+
+
+
+## BUT WAIT!
+
+<br /><br /><br />
+
+::: {.center}
+![](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDY5Y2tlaW9tZHNsODEwMmR0M3ptcTE3bmFqZmJnMnBueGkzbWt4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rVVFWyTINqG7C/giphy.gif){width=50%}
+:::
+
+
+## The `load_all()` function (2)
+
+{{< fa circle-arrow-right >}}&nbsp; Run [**`load_all()`**](https://devtools.r-lib.org/reference/load_all.html) of the package [**`devtools`**](https://devtools.r-lib.org/index.html) to:
+
+- source all {{< fa brands r-project >}}&nbsp; functions in the **`R/`** directory
+
+<br />
+
+:::: {.columns}
+
+::: {.column width=45%}
+```{r}
+#| echo: true
+#| eval: false
+
+# Load project ----
+devtools::load_all()
+```
+:::
+
+::: {.column width=10%}
+:::
+
+::: {.column width=45%}
+:::
+
+::::
+
+
+<br /><br />
+
+. . .
+
+::: {.boxed .center}
+**Don't use `source()` anymore**
+:::
+
+
+
+## Wrap up
+
+**1.** Implement {{< fa brands r-project >}}&nbsp; functions in the **`R/`** directory
+
+**2.** List dependencies in the **`DESCRIPTION`** file
+
+**3.** Run **`devtools::install_deps()`** to install required packages
+
+**4.** Run **`devtools::load_all()`** to set up the project (attach packages & source functions)
+
+<br /><br />
+
+. . .
+
+**5.** Dont'use **`install.packages()`** (use **`devtools::install_deps()`**)
+
+**6.** Dont' use **`library()`** (use **`::`** or list package in **Depends**)
+
+**7.** Dont'use **`source()`** to source functions (use **`devtools::load_all()`**)
+
+<br /><br />
+
+. . .
+
+{{< fa lightbulb >}}&nbsp; Have a look at the package [**`rdeps`**](https://frbcesab.github.io/rdeps/) and the function [**`add_deps()`**](https://frbcesab.github.io/rdeps/reference/add_deps.html)

@@ -15,7 +15,7 @@ The **`DESCRIPTION`** file
 :::
 
 ::: {.subtitle}
-Store project metadata & dependencies in one place
+List project metadata & dependencies in one place
 :::
 
 ::: {.date}

@@ -6,7 +6,7 @@
   <br>
   The DESCRIPTION file
   <br>
-  Store project metadata & dependencies in one place
+  List project metadata & dependencies in one place
   <br>
 </h1>
 
@@ -82,7 +82,7 @@ To understand the file organisation of this repository, please read this [Wiki](
 
 ## Citation
 
-Casajus N (2025) _The `DESCRIPTION` file: Store project metadata & dependencies in one place_. Online presentation available at <https://github.com/rdatatoolbox/description-file/>.
+Casajus N (2025) _The `DESCRIPTION` file: List project metadata & dependencies in one place_. Online presentation available at <https://github.com/rdatatoolbox/description-file/>.
 
 
 ## Contributing
