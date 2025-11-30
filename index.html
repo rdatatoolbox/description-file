@@ -31,6 +31,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-acd4c6f6173a03f0491efd971e37f44f.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -145,7 +211,7 @@
 <p>The <strong><code>DESCRIPTION</code></strong> file</p>
 </div>
 <div class="subtitle">
-<p>Store project metadata &amp; dependencies in one place</p>
+<p>List project metadata &amp; dependencies in one place</p>
 </div>
 <div class="date">
 <p>November 2025</p>
@@ -195,17 +261,352 @@ Author name<br/>
 </section>
 <section id="what-is-it" class="slide level2">
 <h2>What is it?</h2>
-<p>…</p>
+<p><br><br><br></p>
+<div class="center">
+<p><img data-src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDY5Y2tlaW9tZHNsODEwMmR0M3ptcTE3bmFqZmJnMnBueGkzbWt4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rVVFWyTINqG7C/giphy.gif" style="width:50.0%"></p>
+</div>
+</section>
+<section id="what-is-it-1" class="slide level2">
+<h2>What is it?</h2>
+<blockquote>
+<p>The <strong><code>DESCRIPTION</code></strong> file is the main component of an <i class="fa-brands fa-r-project" aria-label="r-project"></i>&nbsp; package describing <strong>package metadata</strong></p>
+</blockquote>
+<div class="fragment">
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; It can be used with a <strong>research compendium</strong> to describe <strong>project metadata</strong></p>
+</div>
+<div class="fragment">
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><i class="fa-solid fa-file-lines" aria-label="file-lines"></i>&nbsp; <strong>Project metadata</strong></p>
+<p>Title, description, authors, license, …</p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div></div>
+</div>
+</section>
+<section id="what-is-it-2" class="slide level2">
+<h2>What is it?</h2>
+<blockquote>
+<p>The <strong><code>DESCRIPTION</code></strong> file is the main component of an <i class="fa-brands fa-r-project" aria-label="r-project"></i>&nbsp; package describing <strong>package metadata</strong></p>
+</blockquote>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; It can be used with a <strong>research compendium</strong> to describe <strong>project metadata</strong></p>
+<p><br><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><i class="fa-solid fa-file-lines" aria-label="file-lines"></i>&nbsp; <strong>Project metadata</strong></p>
+<p>Title, description, authors, license, …</p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><i class="fa-solid fa-wrench" aria-label="wrench"></i>&nbsp; <strong>Project dependencies</strong></p>
+<p>Packages used in the project</p>
+</div></div>
+<div class="fragment">
+<p><br><br></p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; A simple plain text <strong>file without extension</strong> at the <strong>root</strong> of the project</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Use the DCF syntax (Debian Control Format), i.e.&nbsp;<strong><code>field: value</code></strong></p>
+</div>
 </section>
 <section id="project-metadata" class="slide level2">
 <h2>Project metadata</h2>
-<p>…</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Example of the content of a <strong><code>DESCRIPTION</code></strong> file</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="|1|2|3-8|9-10|11|12|13|14-15"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href=""></a><span class="fu">Package</span><span class="kw">:</span><span class="at"> projectname</span></span>
+<span id="cb1-2"><a href=""></a><span class="fu">Title</span><span class="kw">:</span><span class="at"> The Title of the Project</span></span>
+<span id="cb1-3"><a href=""></a><span class="fu">Authors@R</span><span class="kw">:</span><span class="at"> c(</span></span>
+<span id="cb1-4"><a href=""></a><span class="at">    person(</span></span>
+<span id="cb1-5"><a href=""></a><span class="at">      given = "Jane", </span></span>
+<span id="cb1-6"><a href=""></a><span class="at">      family = "Doe", </span></span>
+<span id="cb1-7"><a href=""></a><span class="at">      role = "aut",</span></span>
+<span id="cb1-8"><a href=""></a><span class="at">      email = "jane.doe@mail.me"))</span></span>
+<span id="cb1-9"><a href=""></a><span class="fu">Description</span><span class="kw">:</span><span class="at"> A paragraph providing a full description of </span></span>
+<span id="cb1-10"><a href=""></a><span class="at">    the project.</span></span>
+<span id="cb1-11"><a href=""></a><span class="fu">License</span><span class="kw">:</span><span class="at"> GPL (&gt;= 2)</span></span>
+<span id="cb1-12"><a href=""></a><span class="fu">URL</span><span class="kw">:</span><span class="at"> https://github.com/jdoe/projectname/</span></span>
+<span id="cb1-13"><a href=""></a><span class="fu">Encoding</span><span class="kw">:</span><span class="at"> UTF-8</span></span>
+<span id="cb1-14"><a href=""></a><span class="fu">Roxygen</span><span class="kw">:</span><span class="at"> list(markdown = TRUE)</span></span>
+<span id="cb1-15"><a href=""></a><span class="fu">RoxygenNote</span><span class="kw">:</span><span class="at"> </span><span class="fl">7.3.3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div></div>
 </section>
+<section id="project-metadata-1" class="slide level2">
+<h2>Project metadata</h2>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Example of the content of a <strong><code>DESCRIPTION</code></strong> file</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href=""></a><span class="fu">Package</span><span class="kw">:</span><span class="at"> projectname</span></span>
+<span id="cb2-2"><a href=""></a><span class="fu">Title</span><span class="kw">:</span><span class="at"> The Title of the Project</span></span>
+<span id="cb2-3"><a href=""></a><span class="fu">Authors@R</span><span class="kw">:</span><span class="at"> c(</span></span>
+<span id="cb2-4"><a href=""></a><span class="at">    person(</span></span>
+<span id="cb2-5"><a href=""></a><span class="at">      given = "Jane", </span></span>
+<span id="cb2-6"><a href=""></a><span class="at">      family = "Doe", </span></span>
+<span id="cb2-7"><a href=""></a><span class="at">      role = "aut",</span></span>
+<span id="cb2-8"><a href=""></a><span class="at">      email = "jane.doe@mail.me"))</span></span>
+<span id="cb2-9"><a href=""></a><span class="fu">Description</span><span class="kw">:</span><span class="at"> A paragraph providing a full description of </span></span>
+<span id="cb2-10"><a href=""></a><span class="at">    the project.</span></span>
+<span id="cb2-11"><a href=""></a><span class="fu">License</span><span class="kw">:</span><span class="at"> GPL (&gt;= 2)</span></span>
+<span id="cb2-12"><a href=""></a><span class="fu">URL</span><span class="kw">:</span><span class="at"> https://github.com/jdoe/projectname/</span></span>
+<span id="cb2-13"><a href=""></a><span class="fu">Encoding</span><span class="kw">:</span><span class="at"> UTF-8</span></span>
+<span id="cb2-14"><a href=""></a><span class="fu">Roxygen</span><span class="kw">:</span><span class="at"> list(markdown = TRUE)</span></span>
+<span id="cb2-15"><a href=""></a><span class="fu">RoxygenNote</span><span class="kw">:</span><span class="at"> </span><span class="fl">7.3.3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div></div>
+<p><br><br></p>
+<p><i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i>&nbsp; The function <a href="https://frbcesab.github.io/rcompendium/reference/add_description.html"><strong><code>add_description()</code></strong></a> of the package <a href="https://frbcesab.github.io/rcompendium/"><code>rcompendium</code></a> can be used to automatically generate a prefilled <strong><code>DESCRIPTION</code></strong> file<sup>1</sup></p>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>See also the function <a href="https://usethis.r-lib.org/reference/use_description.html"><strong><code>use_description()</code></strong></a> of the package <a href="https://usethis.r-lib.org/index.html"><code>usethis</code></a></p></li></ol></aside></section>
 <section id="project-dependencies" class="slide level2">
 <h2>Project dependencies</h2>
-<p>…</p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Listing packages in a <strong><code>DESCRIPTION</code></strong> file</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers="16-21"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href=""></a><span class="fu">Package</span><span class="kw">:</span><span class="at"> projectname</span></span>
+<span id="cb3-2"><a href=""></a><span class="fu">Title</span><span class="kw">:</span><span class="at"> The Title of the Project</span></span>
+<span id="cb3-3"><a href=""></a><span class="fu">Authors@R</span><span class="kw">:</span><span class="at"> c(</span></span>
+<span id="cb3-4"><a href=""></a><span class="at">    person(</span></span>
+<span id="cb3-5"><a href=""></a><span class="at">      given = "Jane", </span></span>
+<span id="cb3-6"><a href=""></a><span class="at">      family = "Doe", </span></span>
+<span id="cb3-7"><a href=""></a><span class="at">      role = "aut",</span></span>
+<span id="cb3-8"><a href=""></a><span class="at">      email = "jane.doe@mail.me"))</span></span>
+<span id="cb3-9"><a href=""></a><span class="fu">Description</span><span class="kw">:</span><span class="at"> A paragraph providing a full description of </span></span>
+<span id="cb3-10"><a href=""></a><span class="at">    the project.</span></span>
+<span id="cb3-11"><a href=""></a><span class="fu">License</span><span class="kw">:</span><span class="at"> GPL (&gt;= 2)</span></span>
+<span id="cb3-12"><a href=""></a><span class="fu">URL</span><span class="kw">:</span><span class="at"> https://github.com/jdoe/projectname/</span></span>
+<span id="cb3-13"><a href=""></a><span class="fu">Encoding</span><span class="kw">:</span><span class="at"> UTF-8</span></span>
+<span id="cb3-14"><a href=""></a><span class="fu">Roxygen</span><span class="kw">:</span><span class="at"> list(markdown = TRUE)</span></span>
+<span id="cb3-15"><a href=""></a><span class="fu">RoxygenNote</span><span class="kw">:</span><span class="at"> </span><span class="fl">7.3.3</span></span>
+<span id="cb3-16"><a href=""></a><span class="fu">Depends</span><span class="kw">:</span></span>
+<span id="cb3-17"><a href=""></a><span class="at">    ggplot2</span></span>
+<span id="cb3-18"><a href=""></a><span class="fu">Imports</span><span class="kw">:</span></span>
+<span id="cb3-19"><a href=""></a><span class="at">    here,</span></span>
+<span id="cb3-20"><a href=""></a><span class="at">    readr,</span></span>
+<span id="cb3-21"><a href=""></a><span class="at">    utils</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:10%;">
 
+</div><div class="column" style="width:45%;">
+<p><br><br></p>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Two fields can be used to list dependencies: <strong>Depends</strong> and <strong>Imports</strong></p>
+<p><br><br></p>
+<div class="fragment" data-fragment-index="1">
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Let’s talk about <strong><code>library()</code></strong></p>
+</div>
+</div></div>
 </section>
+<section id="dealing-w-dependencies" class="slide level2">
+<h2>Dealing w/ dependencies</h2>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; To call a function <strong><code>bar()</code></strong> from the package <strong><code>foo</code></strong>, we usually run <strong><code>library("foo")</code></strong> before using <strong><code>bar()</code></strong></p>
+<div class="fragment">
+<p><br></p>
+<p><i class="fa-solid fa-triangle-exclamation" aria-label="triangle-exclamation"></i>&nbsp; <strong>Some potential issues</strong></p>
+<p><br></p>
+<div class="columns">
+<div class="column center" style="width:45%;">
+<p><strong>Lack of readability/reproducibility</strong></p>
+<p>Where does the function <code>bar()</code> come from?</p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column center fragment" data-fragmen-index="1" style="width:45%;">
+<p><strong>Conflict between packages</strong></p>
+<p>Two different functions w/ the same name come from two different packages and both have been attached. Which of the functions do you use?</p>
+</div></div>
+</div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb4-2"><a href=""></a><span class="do">## ── Attaching core tidyverse packages ──────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ## ──</span></span>
+<span id="cb4-3"><a href=""></a><span class="do">## ✔ dplyr     1.1.2     ✔ readr     2.1.4</span></span>
+<span id="cb4-4"><a href=""></a><span class="do">## ✔ forcats   1.0.0     ✔ stringr   1.5.0</span></span>
+<span id="cb4-5"><a href=""></a><span class="do">## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1</span></span>
+<span id="cb4-6"><a href=""></a><span class="do">## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0</span></span>
+<span id="cb4-7"><a href=""></a><span class="do">## ✔ purrr     1.0.1     </span></span>
+<span id="cb4-8"><a href=""></a><span class="do">## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ## ──</span></span>
+<span id="cb4-9"><a href=""></a><span class="do">## ✖ dplyr::filter() masks stats::filter()</span></span>
+<span id="cb4-10"><a href=""></a><span class="do">## ✖ dplyr::lag()    masks stats::lag()</span></span>
+<span id="cb4-11"><a href=""></a><span class="do">## ℹ Use the conflicted package to force all conflicts to become errors</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="dealing-w-dependencies-1" class="slide level2">
+<h2>Dealing w/ dependencies</h2>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; A solution is to use the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/ns-dblcolon.html"><strong>Double Colon operator</strong></a>, i.e.&nbsp;<strong><code>foo::bar()</code></strong> instead of <strong><code>library("foo")</code></strong></p>
+<div class="fragment">
+<p><br></p>
+<div class="boxed center">
+<p><strong>Always use the syntax <code>foo::bar()</code> !!!</strong></p>
+</div>
+</div>
+<div class="fragment">
+<p><br></p>
+<p><i class="fa-solid fa-hand-point-right" aria-label="hand-point-right"></i> &nbsp; Except if you use a package many (many) times (e.g.&nbsp;<strong><code>ggplot2</code></strong>)</p>
+</div>
+</section>
+<section id="back-to-the-description-file" class="slide level2">
+<h2>Back to the <strong><code>DESCRIPTION</code></strong> file</h2>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Listing packages in a <strong><code>DESCRIPTION</code></strong> file</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers="16-21"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href=""></a><span class="fu">Package</span><span class="kw">:</span><span class="at"> projectname</span></span>
+<span id="cb5-2"><a href=""></a><span class="fu">Title</span><span class="kw">:</span><span class="at"> The Title of the Project</span></span>
+<span id="cb5-3"><a href=""></a><span class="fu">Authors@R</span><span class="kw">:</span><span class="at"> c(</span></span>
+<span id="cb5-4"><a href=""></a><span class="at">    person(</span></span>
+<span id="cb5-5"><a href=""></a><span class="at">      given = "Jane", </span></span>
+<span id="cb5-6"><a href=""></a><span class="at">      family = "Doe", </span></span>
+<span id="cb5-7"><a href=""></a><span class="at">      role = "aut",</span></span>
+<span id="cb5-8"><a href=""></a><span class="at">      email = "jane.doe@mail.me"))</span></span>
+<span id="cb5-9"><a href=""></a><span class="fu">Description</span><span class="kw">:</span><span class="at"> A paragraph providing a full description of </span></span>
+<span id="cb5-10"><a href=""></a><span class="at">    the project.</span></span>
+<span id="cb5-11"><a href=""></a><span class="fu">License</span><span class="kw">:</span><span class="at"> GPL (&gt;= 2)</span></span>
+<span id="cb5-12"><a href=""></a><span class="fu">URL</span><span class="kw">:</span><span class="at"> https://github.com/jdoe/projectname/</span></span>
+<span id="cb5-13"><a href=""></a><span class="fu">Encoding</span><span class="kw">:</span><span class="at"> UTF-8</span></span>
+<span id="cb5-14"><a href=""></a><span class="fu">Roxygen</span><span class="kw">:</span><span class="at"> list(markdown = TRUE)</span></span>
+<span id="cb5-15"><a href=""></a><span class="fu">RoxygenNote</span><span class="kw">:</span><span class="at"> </span><span class="fl">7.3.3</span></span>
+<span id="cb5-16"><a href=""></a><span class="fu">Depends</span><span class="kw">:</span></span>
+<span id="cb5-17"><a href=""></a><span class="at">    ggplot2</span></span>
+<span id="cb5-18"><a href=""></a><span class="fu">Imports</span><span class="kw">:</span></span>
+<span id="cb5-19"><a href=""></a><span class="at">    here,</span></span>
+<span id="cb5-20"><a href=""></a><span class="at">    readr,</span></span>
+<span id="cb5-21"><a href=""></a><span class="at">    utils</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><br><br></p>
+<div class="fragment" data-fragment-index="1">
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; List packages in the <strong>Imports</strong> field if you use <strong><code>foo::bar()</code></strong></p>
+</div>
+<p><br><br></p>
+<div class="fragment" data-fragment-index="2">
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; List packages in the <strong>Depends</strong> field if you use <strong><code>library(foo)</code></strong></p>
+</div>
+</div></div>
+</section>
+<section id="ready" class="slide level2">
+<h2>Ready?</h2>
+<p><br><br><br></p>
+<div class="center">
+<p><img data-src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDY5Y2tlaW9tZHNsODEwMmR0M3ptcTE3bmFqZmJnMnBueGkzbWt4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rVVFWyTINqG7C/giphy.gif" style="width:50.0%"></p>
+</div>
+</section>
+<section id="the-install_deps-function" class="slide level2">
+<h2>The <code>install_deps()</code> function</h2>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Run <a href="https://devtools.r-lib.org/reference/install_deps.html"><strong><code>install_deps()</code></strong></a> of the package <a href="https://devtools.r-lib.org/index.html"><strong><code>devtools</code></strong></a> to install all packages listed in the <strong><code>DESCRIPTION</code></strong> file (<strong>Depends</strong> &amp; <strong>Imports</strong>)</p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Install packages listed in the DESCRIPTION file ----</span></span>
+<span id="cb6-2"><a href=""></a>devtools<span class="sc">::</span><span class="fu">install_deps</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column fragment" data-fragment-index="1" style="width:45%;">
+<p><br><br></p>
+<ul>
+<li>All missing packages will be installed</li>
+<li>New versions will be installed (by default)</li>
+<li>Already installed packages won’t be reinstalled</li>
+</ul>
+</div></div>
+<p><br><br></p>
+<div class="fragment">
+<div class="boxed center">
+<p><strong>Don’t use <code>install.packages()</code> anymore</strong></p>
+</div>
+</div>
+</section>
+<section id="but-wait" class="slide level2">
+<h2>But wait!</h2>
+<p><br><br><br></p>
+<div class="center">
+<p><img data-src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDY5Y2tlaW9tZHNsODEwMmR0M3ptcTE3bmFqZmJnMnBueGkzbWt4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rVVFWyTINqG7C/giphy.gif" style="width:50.0%"></p>
+</div>
+</section>
+<section id="the-load_all-function" class="slide level2">
+<h2>The <code>load_all()</code> function</h2>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Run <a href="https://devtools.r-lib.org/reference/load_all.html"><strong><code>load_all()</code></strong></a> of the package <a href="https://devtools.r-lib.org/index.html"><strong><code>devtools</code></strong></a> to:</p>
+<ul>
+<li>load packages listed in the <strong>Imports</strong> field of the <strong><code>DESCRIPTION</code></strong> file</li>
+<li>load &amp; attach packages listed in the <strong>Depends</strong> field of the <strong><code>DESCRIPTION</code></strong> file</li>
+</ul>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Load project ----</span></span>
+<span id="cb7-2"><a href=""></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div></div>
+<p><br><br></p>
+<div class="fragment">
+<div class="boxed center">
+<p><strong>Don’t use <code>library()</code> anymore</strong></p>
+</div>
+</div>
+</section>
+<section id="but-wait-1" class="slide level2">
+<h2>BUT WAIT!</h2>
+<p><br><br><br></p>
+<div class="center">
+<p><img data-src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDY5Y2tlaW9tZHNsODEwMmR0M3ptcTE3bmFqZmJnMnBueGkzbWt4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rVVFWyTINqG7C/giphy.gif" style="width:50.0%"></p>
+</div>
+</section>
+<section id="the-load_all-function-2" class="slide level2">
+<h2>The <code>load_all()</code> function (2)</h2>
+<p><i class="fa-solid fa-circle-arrow-right" aria-label="circle-arrow-right"></i>&nbsp; Run <a href="https://devtools.r-lib.org/reference/load_all.html"><strong><code>load_all()</code></strong></a> of the package <a href="https://devtools.r-lib.org/index.html"><strong><code>devtools</code></strong></a> to:</p>
+<ul>
+<li>source all <i class="fa-brands fa-r-project" aria-label="r-project"></i>&nbsp; functions in the <strong><code>R/</code></strong> directory</li>
+</ul>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Load project ----</span></span>
+<span id="cb8-2"><a href=""></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+
+</div></div>
+<p><br><br></p>
+<div class="fragment">
+<div class="boxed center">
+<p><strong>Don’t use <code>source()</code> anymore</strong></p>
+</div>
+</div>
+</section>
+<section id="wrap-up" class="slide level2">
+<h2>Wrap up</h2>
+<p><strong>1.</strong> Implement <i class="fa-brands fa-r-project" aria-label="r-project"></i>&nbsp; functions in the <strong><code>R/</code></strong> directory</p>
+<p><strong>2.</strong> List dependencies in the <strong><code>DESCRIPTION</code></strong> file</p>
+<p><strong>3.</strong> Run <strong><code>devtools::install_deps()</code></strong> to install required packages</p>
+<p><strong>4.</strong> Run <strong><code>devtools::load_all()</code></strong> to set up the project (attach packages &amp; source functions)</p>
+<p><br><br></p>
+<div class="fragment">
+<p><strong>5.</strong> Dont’use <strong><code>install.packages()</code></strong> (use <strong><code>devtools::install_deps()</code></strong>)</p>
+<p><strong>6.</strong> Dont’ use <strong><code>library()</code></strong> (use <strong><code>::</code></strong> or list package in <strong>Depends</strong>)</p>
+<p><strong>7.</strong> Dont’use <strong><code>source()</code></strong> to source functions (use <strong><code>devtools::load_all()</code></strong>)</p>
+<p><br><br></p>
+</div>
+<div class="fragment">
+<p><i class="fa-solid fa-lightbulb" aria-label="lightbulb"></i>&nbsp; Have a look at the package <a href="https://frbcesab.github.io/rdeps/"><strong><code>rdeps</code></strong></a> and the function <a href="https://frbcesab.github.io/rdeps/reference/add_deps.html"><strong><code>add_deps()</code></strong></a></p>
+
+</div>
+</section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="images/logo-affiliation.png" class="slide-logo"></p>
